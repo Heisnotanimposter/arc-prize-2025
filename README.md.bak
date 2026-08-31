@@ -1,0 +1,35 @@
+# ARC Prize 2025: Pseudo-RL Framework 🔄
+
+Extending the 31-point ARC-AGI 2024 solution with a Pseudo-Reinforcement Learning framework for abstract reasoning.
+
+![Pseudo-RL Visual](arc_pseudo_rl_visual.png)
+
+## Overview
+This work introduces a **Pseudo-Reinforcement Learning** approach where the model improves through self-supervised iterative refinement. By creating a dedicated "scratch space" using specialized tokens (`ATTEMPT_START`, `ATTEMPT_END`), the model can explore and validate reasoning paths before outputting a final grid.
+
+### Key Innovations
+- **Self-Supervised Learning:** The model generates its own trajectories which serve as training data for subsequent iterations.
+- **Hierarchical Reasoning:** Inspired by HRM, focusing on multi-step decomposition of complex ARC tasks.
+- **Cross-Dataset Synergy:** Leverages a blend of original ARC, Re-ARC, and B-ARC synthetic tasks for maximum generalization.
+
+## Technical Structure
+- **Trajectory Generation:** Automated generation of reasoning paths during training.
+- **Production Pipeline:** A robust 24-hour training script for continuous model improvement.
+- **Evaluation Engine:** Comprehensive testing suite for both seen and unseen ARC tasks.
+
+## Quick Start
+1. **Setup Environment:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Run Training Pipeline:**
+   ```bash
+   ./scripts/production_24h_run.sh
+   ```
+3. **Monitor Progress:**
+   ```bash
+   tensorboard --logdir=runs/
+   ```
+
+---
+*Building towards General Intelligence on the ARC-AGI benchmark.*
